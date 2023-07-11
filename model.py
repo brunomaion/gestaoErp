@@ -1,9 +1,10 @@
 
 class Usuario:
-    def __init__(self, x1, x2, x3, x4, x5):
+    def __init__(self, x1, x2, x3, x4):
         self.idUser = x1
         self.nomeUser = x2
         self.cpf = x3
+        self.email = x4
 
 
 class Tarefa:
