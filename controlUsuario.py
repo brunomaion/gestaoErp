@@ -9,18 +9,29 @@ def adicionarTabela(x):
     df2 = pd.DataFrame({
         'idUser': [x.idUser],
         'nomeUser': [x.nomeUser],
-        'cpf': [x.cpf],
+        'senha': [x.senha],
         'email': [x.email]
     })
     novaTabela = pd.concat([dfX, df2])
-    salvarDataframe(novaTabela)
 
+    if (duplicidadeNome(x.nomeUser) == True):
+        print("Registro Feito!")
+        salvarDataframe(novaTabela)
+    else:
+        print("Registro Cancelado (Duplicidade)!")
+    
+
+def duplicidadeNome(y):
+    if (procurar_usuario('nomeUser',y)) == None: ##NONE Q NAO TEM
+        print("PAssando")
+        return True
+    return False
 
 
 def printarUsuarioConsole(x):
     print(x.idUser)
     print(x.nomeUser)
-    print(x.cpf)
+    print(x.senha)
     print(x.email)
 
 def printDf():
@@ -37,7 +48,7 @@ def procurar_usuario(coluna, elemento):
     row = df[df[coluna] == elemento]
     if len(row) > 0:
         row = row.iloc[0]
-        usuario = model.Usuario(row['idUser'], row['nomeUser'], row['cpf'], row['email'])
+        usuario = model.Usuario(row['idUser'], row['nomeUser'], row['senha'], row['email'])
         return usuario
     else:
         return None

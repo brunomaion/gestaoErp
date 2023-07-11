@@ -1,6 +1,6 @@
 import pandas as pd
 
-usuario = pd.DataFrame(columns=['idUser', 'nomeUser', 'cpf', 'email'])
+usuario = pd.DataFrame(columns=['idUser', 'nomeUser', 'senha', 'email'])
 usuario.to_csv('tabelas/usuario.csv', sep=';', index=False)
 
 

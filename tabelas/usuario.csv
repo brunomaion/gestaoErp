@@ -1,1 +1,2 @@
-idUser;nomeUser;cpf;email
+idUser;nomeUser;senha;email
+1;Bruno;123;unio
