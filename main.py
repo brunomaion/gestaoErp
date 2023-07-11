@@ -1,13 +1,22 @@
 import model
-import control
+import controlUsuario
 
 
 
+
+
+
+
+idUser = input("Digite o ID do usuário: ")
 nome = input("Digite o nome do usuário: ")
 cpf = input("Digite o cpf do usuário: ")
 email = input("Digite o email do usuário: ")
 
 
-print(nome, cpf, email)
+usuario1 = model.Usuario(idUser, nome, cpf, email)
 
-usuario1 = 
+controlUsuario.adicionarTabela(usuario1)
+
+##controlUsuario.printDf()
+
+controlUsuario.printDf()
