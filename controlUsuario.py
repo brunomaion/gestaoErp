@@ -41,3 +41,5 @@ def procurar_usuario(coluna, elemento):
         return usuario
     else:
         return None
+    
+    ####################################################################
