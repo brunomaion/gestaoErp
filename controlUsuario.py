@@ -1,4 +1,4 @@
-import model
+import model 
 import pandas as pd
 
 
@@ -32,5 +32,12 @@ def carregarDataframe():
 def salvarDataframe(dx):
     dx.to_csv('tabelas/usuario.csv', sep=';', index=False)
 
-    
-
+def procurar_usuario(coluna, elemento):
+    df = carregarDataframe()
+    row = df[df[coluna] == elemento]
+    if len(row) > 0:
+        row = row.iloc[0]
+        usuario = model.Usuario(row['idUser'], row['nomeUser'], row['cpf'], row['email'])
+        return usuario
+    else:
+        return None
