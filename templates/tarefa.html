@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Tarefa</title>
+</head>
+<body>
+    <h1>Cadastro Tarefa</h1>
+    <form action="/enviarTarefa" method="post">
+        <label for="idTarefa">ID da Tarefa:</label>
+        <input type="int" id="idTarefa" name="idTarefa" required><br>
+
+        <label for="nomeTarefa">Nome da Tarefa:</label>
+        <input type="text" id="nomeTarefa" name="nomeTarefa" required><br>
+
+        <label for="dataFinal">Data Final:</label>
+        <input type="text" id="dataFinal" name="dataFinal" required><br>
+
+        <label for="descricao">Descrição:</label>
+        <input type="text" id="descricao" name="descricao" required><br>
+
+        <input type="submit" value="Adicionar tarefa">
+    </form>
+    
+    <form action="/homepage" method="post">
+        <input type="submit" value="Voltar">
+    </form>
+
+</body>
+</html>
+

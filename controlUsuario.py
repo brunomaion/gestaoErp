@@ -23,7 +23,6 @@ def adicionarTabela(x):
 
 def duplicidadeNome(y):
     if (procurar_usuario('nomeUser',y)) == None: ##NONE Q NAO TEM
-        print("PAssando")
         return True
     return False
 
@@ -53,4 +52,10 @@ def procurar_usuario(coluna, elemento):
     else:
         return None
     
-    ####################################################################
+####################################################################
+
+
+def excluir_usuario(nome):
+    x = carregarDataframe()
+    x = x.drop(x[x['nomeUser'] == nome].index)
+    salvarDataframe(x)
