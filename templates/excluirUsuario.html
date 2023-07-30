@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Excluir usuário</title>
+</head>
+<body>
+    <h1>Excluir usuário</h1>
+
+    {% for objeto in objetos %}
+        <p>Nome: {{ objeto['nomeUser'] }}</p>
+
+        <p>Email: {{ objeto['email'] }}</p>
+        <br>
+    {% endfor %}
+
+    <form action="/botaoexcluirUsuario" method="post">
+
+
+        <label for="nomedoUsuario">Nome do usuário:</label>
+        <input type="text" id="nomeTarefa" name="nomeUsuarioExcluido" required><br>
+
+
+        <input type="submit" value="Excluir usuário">
+    </form>
+
+    <form action="/homepage" method="post">
+        <input type="submit" value="Voltar">
+    </form>
+
+</body>
+</html>

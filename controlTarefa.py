@@ -51,3 +51,10 @@ def procurar_Tarefa(coluna, elemento):
         return None
 
 ####################################################################
+
+
+
+def excluirTarefa(x):
+    print( 'usuario excluido')
+
+

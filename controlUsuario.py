@@ -59,3 +59,11 @@ def excluir_usuario(nome):
     x = carregarDataframe()
     x = x.drop(x[x['nomeUser'] == nome].index)
     salvarDataframe(x)
+
+def consultar_dataframe():
+    df = carregarDataframe()
+    usuarios = []
+    for _, row in df.iterrows():
+        usuario = model.Usuario(row['idUser'], row['nomeUser'], row['senha'], row['email'])
+        usuarios.append(usuario)
+    return usuarios

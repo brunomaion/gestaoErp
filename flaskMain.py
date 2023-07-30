@@ -5,6 +5,7 @@ import model
 import controlUsuario
 import controlTarefa
 import os
+import pandas as pd
 
 
 app = Flask(__name__)
@@ -31,7 +32,8 @@ def login():
 
 
 
-@app.route('/enviar', methods=['POST'])
+
+@app.route('/adicionarUsuario', methods=['POST'])
 def enviar_formulario():
     nome = request.form['nome']
     senha = request.form['senha']
@@ -50,7 +52,7 @@ def enviar_formulario():
 @app.route('/logout', methods=['GET'])
 def logout():
     # Limpar a sessão para fazer o logout
-    return redirect("/login")
+    return render_template("login.html")
 
 @app.route("/addusuario", methods=['GET'])
 def pagina1():
@@ -74,6 +76,21 @@ def addTarefa():
     tarefa = model.Tarefa(idTarefa, nomeTarefa, data, mensagem)
     controlTarefa.adicionarTabela(tarefa)
 
+    return render_template("homepage.html")
+
+
+@app.route('/excUsuario', methods=['GET', 'POST'])
+def paginaExcluirUsuario():
+    usuarios = controlUsuario.consultar_dataframe()
+    df = pd.DataFrame([vars(usuario) for usuario in usuarios])
+    objetos = df.to_dict(orient='records')
+    return render_template("excluirUsuario.html", objetos=objetos)
+
+@app.route("/botaoexcluirUsuario", methods=['GET', 'POST'])
+def botaoExcluirUsuario():
+    nome_usuario_excluido = request.form.get('nomeUsuarioExcluido')
+    print("Nome do usuário a ser excluído:", nome_usuario_excluido)
+    controlUsuario.excluir_usuario(nome_usuario_excluido)
     return render_template("homepage.html")
 
 

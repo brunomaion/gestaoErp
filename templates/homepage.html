@@ -4,11 +4,20 @@
     <title>Homepage</title>
 </head>
 <body>
+    <div>
+        {% if nomeUsuario %}
+            Usuário logado: {{ nomeUsuario }}
+        {% else %}
+            Nenhum usuário logado.
+        {% endif %}
+    </div>
     <h1>Menu</h1>
     <ul>
         <li><a href="/addusuario">Adicionar Usuário</a></li>
         <li><a href="/addtarefa">Adicionar Tarefa</a></li>
+        <li><a href="/excUsuario">Excluir usuário</a></li>
         <li><a href="/logout">Sair</a></li>
+        
     </ul>
 </body>
 </html>
